@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Air Ticket Fare Calculator</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <section class="card" aria-label="Air Ticket Fare Calculation">
+    <div class="window-layout">
+      <div class="left-panel">
+        <h1>Fare Calculation</h1>
+        <p class="subtitle">Enter ticket details to calculate total fare and profit margins.</p>
+
+        <div class="field">
+          <label for="baseFare" class="label">Base Fare ($)</label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input id="baseFare" class="with-prefix" type="text" inputmode="decimal" value="">
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="airlineCommissionPercent" class="label">Airline Commission (%)</label>
+            <div class="input-wrap">
+              <input id="airlineCommissionPercent" class="with-suffix" type="text" inputmode="decimal" value="">
+              <span class="suffix">%</span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="taxAmount" class="label">Tax ($)</label>
+            <div class="input-wrap">
+              <span class="prefix">$</span>
+              <input id="taxAmount" class="with-prefix" type="text" inputmode="decimal" value="">
+            </div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="bankPercent" class="label">Bank Charges (%)</label>
+            <div class="input-wrap">
+              <input id="bankPercent" class="with-suffix" type="text" inputmode="decimal" value="">
+              <span class="suffix">%</span>
+            </div>
+          </div>
+          <div class="field">
+            <label for="issueFee" class="label">Issue Fees ($)</label>
+            <div class="input-wrap">
+              <span class="prefix">$</span>
+              <input id="issueFee" class="with-prefix" type="text" inputmode="decimal" value="">
+            </div>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="profit" class="label">Profit ($)</label>
+            <div class="input-wrap">
+              <span class="prefix">$</span>
+              <input id="profit" class="with-prefix" type="text" inputmode="decimal" value="">
+            </div>
+          </div>
+          <div class="field">
+            <label for="otherCommission" class="label">Other Commission ($)</label>
+            <div class="input-wrap">
+              <span class="prefix">$</span>
+              <input id="otherCommission" class="with-prefix" type="text" inputmode="decimal" value="">
+            </div>
+          </div>
+        </div>
+
+        <label class="check-row" for="useOtherCommission">
+          <input id="useOtherCommission" type="checkbox">
+          Add other commission
+        </label>
+
+        <label class="check-row" for="convertToMmk">
+          <input id="convertToMmk" type="checkbox">
+          Convert to MMK
+        </label>
+
+        <div class="field hidden" id="exchangeRateField">
+          <label for="exchangeRate" class="label">Exchange Rate (MMK)</label>
+          <div class="input-wrap">
+            <input id="exchangeRate" type="text" inputmode="decimal" value="">
+          </div>
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <div class="result" id="resultPanel" aria-live="polite">
+          <div class="result-head">
+            <h2 class="result-title">
+              <span class="result-title-label">Selling Fare</span>
+              <strong id="sellingFare">$0</strong>
+              <div class="result-mmk hidden" id="sellingMmkLine">MMK: <strong id="sellingMmkValue">0 MMK</strong></div>
+            </h2>
+            <div class="result-actions">
+              <button class="result-icon" id="copyBreakdownBtn" type="button" aria-label="Copy breakdown">&#128203;</button>
+              <button class="result-icon" id="downloadCardBtn" type="button" aria-label="Download as image">&#128229;</button>
+            </div>
+          </div>
+          <div class="result-divider"></div>
+          <div class="result-line"><span>Issuing Fare</span><strong id="issuingFareAmount">$0</strong></div>
+          <div class="result-line hidden" id="otherCommissionLine"><span>Other Commission</span><strong id="otherCommissionAmount">$0</strong></div>
+          <div class="result-line profit"><span>Profit</span><strong id="profitAmount">$0</strong></div>
+        </div>
+
+        <button class="btn btn-secondary" id="clearBtn" type="button">Clear Form</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>
